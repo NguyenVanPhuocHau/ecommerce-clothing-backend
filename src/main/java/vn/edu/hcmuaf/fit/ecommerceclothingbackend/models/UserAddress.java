@@ -15,13 +15,16 @@ import javax.persistence.Id;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-public class Product {
+public class UserAddress {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long productID;
-    private String productName;
-    private String productMaterial;
-    private Long categoryID;
-
+    private Long userAddressID;
+    private Long userID;
+    private String commune;
+    private String district;
+    private String province;
+    private String address;
+    private String note;
+    private boolean isDefault;
 
 }
