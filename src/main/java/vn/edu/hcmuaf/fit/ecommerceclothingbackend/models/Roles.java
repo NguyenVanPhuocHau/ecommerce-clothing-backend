@@ -12,16 +12,14 @@ import javax.persistence.Id;
 
 @Setter
 @Getter
+@Entity
 @NoArgsConstructor
 @AllArgsConstructor
-@Entity
-public class Product {
+public class Roles {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long productID;
-    private String productName;
-    private String productMaterial;
-    private Long categoryID;
+    private Long roleID;
+    private String roleName;
 
 
 }

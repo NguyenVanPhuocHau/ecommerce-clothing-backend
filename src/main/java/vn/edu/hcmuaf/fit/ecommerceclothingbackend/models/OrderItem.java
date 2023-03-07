@@ -15,13 +15,14 @@ import javax.persistence.Id;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-public class Product {
+public class OrderItem {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long productID;
-    private String productName;
-    private String productMaterial;
-    private Long categoryID;
+    private Long orderItemID;
+    private Long orderID;
+    private Long productVID;
+    private double priceCurrent;
+    private int quantity;
 
 
 }
