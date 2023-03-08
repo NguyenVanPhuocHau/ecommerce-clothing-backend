@@ -45,21 +45,21 @@ public class ProductController {
     }
 
     @PutMapping("/{id}")
-    ResponseEntity<ResponseObject> updateProduct(@RequestBody Product newProduct, @PathVariable Long id) {
-        Product updateProduct = repository.findById(id).map(product -> {
-            product.setProductName(newProduct.getProductName());
-            ;
-            product.setPrice(newProduct.getPrice());
-            ;
-            product.setDate(newProduct.getDate());
-            product.setUrl(newProduct.getUrl());
-            return repository.save(product);
-        }).orElseGet(() -> {
-            newProduct.setId(id);
-            return repository.save(newProduct);
-        });
-        return ResponseEntity.status(HttpStatus.OK).body(new ResponseObject("ok", "Update Product successfully", updateProduct));
-    }
+//    ResponseEntity<ResponseObject> updateProduct(@RequestBody Product newProduct, @PathVariable Long id) {
+//        Product updateProduct = repository.findById(id).map(product -> {
+//            product.setProductName(newProduct.getProductName());
+//            ;
+//            product.setPrice(newProduct.getPrice());
+//            ;
+//            product.setDate(newProduct.getDate());
+//            product.setUrl(newProduct.getUrl());
+//            return repository.save(product);
+//        }).orElseGet(() -> {
+//            newProduct.setId(id);
+//            return repository.save(newProduct);
+//        });
+//        return ResponseEntity.status(HttpStatus.OK).body(new ResponseObject("ok", "Update Product successfully", updateProduct));
+//    }
 
     @DeleteMapping("/{id}")
     ResponseEntity<ResponseObject> deleteProduct(@PathVariable Long id){
