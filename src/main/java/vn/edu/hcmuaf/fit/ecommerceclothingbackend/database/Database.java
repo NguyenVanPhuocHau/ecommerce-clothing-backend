@@ -19,10 +19,10 @@ public class Database {
         return new CommandLineRunner() {
             @Override
             public void run(String... args) throws Exception {
-                Product productA = new Product("jean",100000,new Date(2023,1,5),"");
-                Product productB = new Product("kirt",110000,new Date(2023,1,5),"");
-                logger.info("insert data:"+  productRepository.save(productA));
-                logger.info("insert data:"+  productRepository.save(productB));
+//                Product productA = new Product("jean",100000,new Date(2023,1,5),"");
+//                Product productB = new Product("kirt",110000,new Date(2023,1,5),"");
+//                logger.info("insert data:"+  productRepository.save(productA));
+//                logger.info("insert data:"+  productRepository.save(productB));
             }
         };
     }

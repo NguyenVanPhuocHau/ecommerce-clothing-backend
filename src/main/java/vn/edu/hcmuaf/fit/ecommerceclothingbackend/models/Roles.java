@@ -4,11 +4,9 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import vn.edu.hcmuaf.fit.ecommerceclothingbackend.constant.ERole;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Setter
 @Getter
@@ -17,9 +15,10 @@ import javax.persistence.Id;
 @AllArgsConstructor
 public class Roles {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long roleID;
-    private String roleName;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int ID;
+    @Enumerated(EnumType.STRING)
+    private ERole name;
 
 
 }

@@ -6,7 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.springframework.stereotype.Component;
 
-import javax.validation.constraints.*;
+//import javax.validation.constraints.*;
 import java.util.Set;
 
 @Component
@@ -15,16 +15,16 @@ import java.util.Set;
 @NoArgsConstructor
 @AllArgsConstructor
 public class SignupRequest {
-  @NotBlank
+//  @NotBlank
   private String name;
-  @NotBlank
-  @Email
+//  @NotBlank
+//  @Email
   private String email;
 
   private String phone;
 
   private String avatar;
-  @NotBlank
+//  @NotBlank
   private String password;
   private Set<String> role;
 

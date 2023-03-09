@@ -5,10 +5,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Setter
 @Getter
@@ -17,9 +14,11 @@ import javax.persistence.Id;
 @Entity
 public class UserAddress {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long userAddressID;
-    private Long userID;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int ID;
+    @ManyToOne
+    @JoinColumn(name = "user_ID")
+    private User user;
     private String commune;
     private String district;
     private String province;

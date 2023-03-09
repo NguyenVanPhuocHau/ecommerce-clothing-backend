@@ -1,6 +1,6 @@
 package vn.edu.hcmuaf.fit.ecommerceclothingbackend.payload.request;
 
-import com.example.restful_demo.model.dto.OrderDetailDto;
+//import com.example.restful_demo.model.dto.OrderDetailDto;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -16,7 +16,7 @@ import java.util.Set;
 @AllArgsConstructor
 @NoArgsConstructor
 public class OrderRequest {
-    Set<OrderDetailDto> orderDetails = new HashSet<>();
+//    Set<OrderDetailDto> orderDetails = new HashSet<>();
     int voucherId;
     int userId;
     double totalPrice;

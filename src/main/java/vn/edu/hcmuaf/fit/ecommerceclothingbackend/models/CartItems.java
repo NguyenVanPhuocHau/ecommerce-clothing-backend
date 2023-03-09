@@ -17,10 +17,10 @@ import javax.persistence.Id;
 @Entity
 public class CartItems {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long cartItemID;
-    private Long cartID;
-    private Long productVID;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int ID;
+    private int cartID;
+    private int productVID;
     private double price;
     private int quantity;
 

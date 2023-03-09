@@ -1,6 +1,6 @@
 package vn.edu.hcmuaf.fit.ecommerceclothingbackend.payload.request;
 
-import com.example.restful_demo.entity.Voucher;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -17,5 +17,5 @@ import java.util.Set;
 @Component
 public class UserVoucher {
     int id;
-    Set<Voucher> vouchers = new HashSet<>();
+//    Set<Voucher> vouchers = new HashSet<>();
 }
