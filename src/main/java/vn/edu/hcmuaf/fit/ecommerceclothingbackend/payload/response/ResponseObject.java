@@ -1,4 +1,4 @@
-package vn.edu.hcmuaf.fit.ecommerceclothingbackend.models;
+package vn.edu.hcmuaf.fit.ecommerceclothingbackend.payload.response;
 
 public class ResponseObject {
     private String status;

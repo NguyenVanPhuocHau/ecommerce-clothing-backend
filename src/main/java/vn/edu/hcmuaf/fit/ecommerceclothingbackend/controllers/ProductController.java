@@ -2,11 +2,10 @@ package vn.edu.hcmuaf.fit.ecommerceclothingbackend.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.RequestEntity;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import vn.edu.hcmuaf.fit.ecommerceclothingbackend.models.Product;
-import vn.edu.hcmuaf.fit.ecommerceclothingbackend.models.ResponseObject;
+import vn.edu.hcmuaf.fit.ecommerceclothingbackend.payload.response.ResponseObject;
 import vn.edu.hcmuaf.fit.ecommerceclothingbackend.repositories.ProductRepository;
 
 import java.util.List;

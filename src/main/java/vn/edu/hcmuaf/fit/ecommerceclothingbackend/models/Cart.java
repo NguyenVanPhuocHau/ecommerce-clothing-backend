@@ -17,8 +17,8 @@ import javax.persistence.Id;
 @Entity
 public class Cart {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long cartID;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int ID;
     private double totalPrice;
 
 

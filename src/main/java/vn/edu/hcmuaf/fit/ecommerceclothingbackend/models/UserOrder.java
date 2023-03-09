@@ -7,25 +7,28 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 
 @Setter
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-public class UserInformation {
+public class UserOrder {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int ID;
-    private String lastName;
-    private String firstName;
-    private String gender;
-    private Date birthday;
-    private String avatar;
-
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "user_ID")
     private User user;
+    private double totalAmount;
+    @ManyToOne
+    @JoinColumn(name = "status_ID")
+    private OrderStatus orderStatus;
+    private Date createAt;
+    @OneToMany(mappedBy = "order")
+    private List<OrderItem> orderItems;
+
 
 
 }

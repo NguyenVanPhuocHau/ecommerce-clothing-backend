@@ -1,6 +1,6 @@
 package vn.edu.hcmuaf.fit.ecommerceclothingbackend.payload.response;
 
-import com.example.restful_demo.model.dto.ProductDto;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -16,5 +16,5 @@ public class OrderDetailResponse {
     int id;
     int quantity;
     String size;
-    ProductDto product;
+//    ProductDto product;
 }

@@ -5,10 +5,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.List;
 
 @Setter
 @Getter
@@ -17,9 +15,10 @@ import javax.persistence.Id;
 @Entity
 public class OrderStatus {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long orderStatusID;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int ID;
     private String status;
-
+    @OneToMany(mappedBy = "orderStatus")
+    private List<UserOrder> userOrder;
 
 }
