@@ -25,9 +25,12 @@ public class ProductVariants {
     @ManyToOne
     @JoinColumn(name = "color_ID")
     private ProductColor productColor;
-    private int colorID;
     private int quantity;
     private double price;
+    @OneToOne(mappedBy = "productVariants", cascade = CascadeType.ALL)
+    private CartItems cartItems;
+    @OneToOne(mappedBy = "productVariants", cascade = CascadeType.ALL)
+    private OrderItem orderItem;
 
 
 }

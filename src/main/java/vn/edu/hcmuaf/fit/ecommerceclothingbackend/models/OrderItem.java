@@ -19,7 +19,9 @@ public class OrderItem {
     @ManyToOne
     @JoinColumn(name = "order_ID")
     private UserOrder order;
-    private int productVID;
+    @OneToOne
+    @JoinColumn(name = "productV_ID")
+    private ProductVariants productVariants;
     private double priceCurrent;
     private int quantity;
 
