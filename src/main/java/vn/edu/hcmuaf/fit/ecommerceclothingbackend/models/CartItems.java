@@ -5,10 +5,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Setter
 @Getter
@@ -19,10 +16,14 @@ public class CartItems {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int ID;
-    private int cartID;
-    private int productVID;
+    @ManyToOne
+    @JoinColumn(name = "cart_ID")
+    private Cart cart;
     private double price;
     private int quantity;
+    @OneToOne
+    @JoinColumn(name = "productV_ID")
+    private ProductVariants productVariants;
 
 
 }
