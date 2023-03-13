@@ -12,7 +12,7 @@ import java.util.Optional;
 @Transactional
 public interface UserRepository extends JpaRepository<User,Integer> {
     Optional<User> findByEmail(String email);
-//    @Query("select u from User u join fetch u.vouchers join fetch u.roles where u.email=:email")
+    @Query("select u from User u join fetch u.roles where u.email=:email")
     User findUserHasVoucher(@Param("email") String email);
     Optional<User> findUserById(int id);
     Boolean existsByEmail(String email);
