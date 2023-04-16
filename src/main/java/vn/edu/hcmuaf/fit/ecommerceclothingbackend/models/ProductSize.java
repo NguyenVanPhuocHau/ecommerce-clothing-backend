@@ -16,7 +16,7 @@ import java.util.List;
 public class ProductSize {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int ID;
+    private int id;
     private String size;
     @OneToMany(mappedBy = "productColor")
     private List<ProductVariants> productVariants;

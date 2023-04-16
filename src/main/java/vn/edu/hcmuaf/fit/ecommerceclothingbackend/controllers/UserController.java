@@ -5,16 +5,18 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import vn.edu.hcmuaf.fit.ecommerceclothingbackend.models.User;
 import vn.edu.hcmuaf.fit.ecommerceclothingbackend.service.UserService;
+import vn.edu.hcmuaf.fit.ecommerceclothingbackend.service.UserServiceImpl;
 
 import java.util.List;
 import java.util.Optional;
 
 @RestController
+@RequestMapping(path = "/api/v1/Users")
 public class UserController {
     @Autowired
-    private UserService userService;
+    private UserServiceImpl userService;
 
-    @GetMapping("/")
+    @GetMapping("/all")
     public List<User> getAllUsers() {
         return userService.getAllUsers();
     }

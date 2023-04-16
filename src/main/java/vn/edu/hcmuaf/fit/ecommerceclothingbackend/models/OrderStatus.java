@@ -16,7 +16,7 @@ import java.util.List;
 public class OrderStatus {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int ID;
+    private int id;
     private String status;
     @OneToMany(mappedBy = "orderStatus")
     private List<UserOrder> userOrder;

@@ -19,4 +19,6 @@ public interface ProductService {
     public List<Product> searchProduct(int page,int numOfProduct,String search);
     public List<Product> filterProduct(String gender, int categoryId,int page, int numOfProduct,int sort, int min, int max);
     public void deleteProduct(int id);
+
+    public List<Product> getAllProduct();
 }

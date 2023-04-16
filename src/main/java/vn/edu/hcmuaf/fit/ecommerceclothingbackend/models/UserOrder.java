@@ -17,13 +17,13 @@ import java.util.List;
 public class UserOrder {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int ID;
+    private int id;
     @ManyToOne
-    @JoinColumn(name = "user_ID")
+    @JoinColumn(name = "user_id")
     private User user;
     private double totalAmount;
     @ManyToOne
-    @JoinColumn(name = "status_ID")
+    @JoinColumn(name = "status_id")
     private OrderStatus orderStatus;
     private Date createAt;
     @OneToMany(mappedBy = "order")

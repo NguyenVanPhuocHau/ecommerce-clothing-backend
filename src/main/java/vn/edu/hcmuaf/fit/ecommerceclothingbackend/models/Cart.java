@@ -16,7 +16,7 @@ import java.util.List;
 public class Cart {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int ID;
+    private int id;
     private double totalPrice;
     @OneToMany(mappedBy = "cart")
     private List<CartItems> cartItems;

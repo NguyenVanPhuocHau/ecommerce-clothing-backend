@@ -4,9 +4,19 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import vn.edu.hcmuaf.fit.ecommerceclothingbackend.models.Product;
 
 import java.util.List;
+import java.util.Optional;
 
-public interface ProductRepository extends JpaRepository<Product,Long> {
+public interface ProductRepository extends JpaRepository<Product, Integer> {
     List<Product> findByProductName(String productName);
-    List<Product> findByProductID(int ID);
 
+
+
+    @Override
+    Optional<Product> findById(Integer integer);
+
+    @Override
+    List<Product> findAllById(Iterable<Integer> integers);
+
+    @Override
+    List<Product> findAll();
 }

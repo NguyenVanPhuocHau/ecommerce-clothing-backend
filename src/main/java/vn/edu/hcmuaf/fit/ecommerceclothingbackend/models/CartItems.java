@@ -15,14 +15,14 @@ import javax.persistence.*;
 public class CartItems {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int ID;
+    private int id;
     @ManyToOne
-    @JoinColumn(name = "cart_ID")
+    @JoinColumn(name = "cart_id")
     private Cart cart;
     private double price;
     private int quantity;
     @OneToOne
-    @JoinColumn(name = "productV_ID")
+    @JoinColumn(name = "productV_id")
     private ProductVariants productVariants;
 
 

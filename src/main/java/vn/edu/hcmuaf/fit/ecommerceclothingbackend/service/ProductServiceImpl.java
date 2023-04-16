@@ -1,11 +1,19 @@
 package vn.edu.hcmuaf.fit.ecommerceclothingbackend.service;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 import vn.edu.hcmuaf.fit.ecommerceclothingbackend.models.Product;
 import vn.edu.hcmuaf.fit.ecommerceclothingbackend.payload.request.ProductRequest;
+import vn.edu.hcmuaf.fit.ecommerceclothingbackend.repositories.ProductRepository;
 
 import java.util.List;
 
+@Service
 public class ProductServiceImpl implements  ProductService{
+
+    @Autowired
+    ProductRepository productRepository;
     @Override
     public List<Product> getAllProductWoman(int page, int numberOfProduct, String gender, int sort) {
         return null;
@@ -44,5 +52,10 @@ public class ProductServiceImpl implements  ProductService{
     @Override
     public void deleteProduct(int id) {
 
+    }
+
+    @Override
+    public List<Product> getAllProduct() {
+        return productRepository.findAll();
     }
 }

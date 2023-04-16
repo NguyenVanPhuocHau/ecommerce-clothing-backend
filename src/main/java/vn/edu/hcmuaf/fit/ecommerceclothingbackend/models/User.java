@@ -4,10 +4,7 @@ import lombok.*;
 import org.springframework.stereotype.Component;
 
 import javax.persistence.*;
-import java.util.Date;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 @Getter
 @Setter
@@ -21,19 +18,19 @@ public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int ID;
+    private int id;
     @OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
     private UserInformation information;
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(	name = "user_roles",
-            joinColumns = @JoinColumn(name = "user_ID"),
-            inverseJoinColumns = @JoinColumn(name = "roles_ID"))
+            joinColumns = @JoinColumn(name = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "roles_id"))
     private Set<Roles> roles = new HashSet<>();
     private String userName;
     private String password;
     private String email;
     private String status;
-    private Date createAt;
+    private Calendar createAt;
     @OneToMany(mappedBy = "user")
     private List<UserAddress> userAddress;
     @OneToMany(mappedBy = "user")
