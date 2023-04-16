@@ -15,9 +15,9 @@ import javax.persistence.*;
 public class UserAddress {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int ID;
+    private int id;
     @ManyToOne
-    @JoinColumn(name = "user_ID")
+    @JoinColumn(name = "user_id")
     private User user;
     private String commune;
     private String district;

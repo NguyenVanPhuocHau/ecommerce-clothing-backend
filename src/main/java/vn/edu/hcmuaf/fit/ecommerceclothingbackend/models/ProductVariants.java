@@ -15,15 +15,15 @@ import javax.persistence.*;
 public class ProductVariants {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int ID;
+    private int Id;
     @ManyToOne
-    @JoinColumn(name = "product_ID")
+    @JoinColumn(name = "product_id")
     private Product product;
     @ManyToOne
-    @JoinColumn(name = "size_ID")
+    @JoinColumn(name = "size_id")
     private ProductSize productSize;
     @ManyToOne
-    @JoinColumn(name = "color_ID")
+    @JoinColumn(name = "color_id")
     private ProductColor productColor;
     private int quantity;
     private double price;

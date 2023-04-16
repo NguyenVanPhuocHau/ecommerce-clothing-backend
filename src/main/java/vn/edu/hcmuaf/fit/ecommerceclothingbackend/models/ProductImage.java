@@ -15,9 +15,9 @@ import javax.persistence.*;
 public class ProductImage {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int ID;
+    private int id;
     @ManyToOne
-    @JoinColumn(name = "user_ID")
+    @JoinColumn(name = "user_id")
     private Product product;
     private String image;
 

@@ -16,7 +16,7 @@ import java.util.Date;
 public class UserInformation {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int ID;
+    private int id;
     private String lastName;
     private String firstName;
     private String gender;
@@ -24,7 +24,7 @@ public class UserInformation {
     private String avatar;
 
     @OneToOne
-    @JoinColumn(name = "user_ID")
+    @JoinColumn(name = "user_id")
     private User user;
 
 

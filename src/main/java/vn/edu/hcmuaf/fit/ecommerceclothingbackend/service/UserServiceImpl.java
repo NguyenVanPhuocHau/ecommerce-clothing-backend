@@ -2,6 +2,7 @@ package vn.edu.hcmuaf.fit.ecommerceclothingbackend.service;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 import vn.edu.hcmuaf.fit.ecommerceclothingbackend.models.User;
 import vn.edu.hcmuaf.fit.ecommerceclothingbackend.repositories.UserRepository;
@@ -25,11 +26,17 @@ public class UserServiceImpl implements  UserService{
 
     @Override
     public void saveUser(User user) {
+
         userRepository.save(user);
     }
 
     @Override
     public void deleteUser(int id) {
         userRepository.deleteById(id);
+    }
+
+    @Override
+    public Optional<User> getUserByEmail(String email) {
+        return userRepository.findByEmail(email);
     }
 }
