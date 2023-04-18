@@ -2,12 +2,9 @@ package vn.edu.hcmuaf.fit.ecommerceclothingbackend.repositories;
 
 
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.Query;
-import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
-import vn.edu.hcmuaf.fit.ecommerceclothingbackend.models.User;
+import vn.edu.hcmuaf.fit.ecommerceclothingbackend.entitys.User;
 
-import javax.transaction.Transactional;
 import java.util.List;
 import java.util.Optional;
 
@@ -26,4 +23,5 @@ public interface UserRepository extends JpaRepository<User,Integer> {
 
     Boolean existsByEmail(String email);
 
+    User findByUsername(String username);
 }

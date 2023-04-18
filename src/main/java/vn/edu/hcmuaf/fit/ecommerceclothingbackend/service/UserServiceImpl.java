@@ -2,9 +2,8 @@ package vn.edu.hcmuaf.fit.ecommerceclothingbackend.service;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
-import vn.edu.hcmuaf.fit.ecommerceclothingbackend.models.User;
+import vn.edu.hcmuaf.fit.ecommerceclothingbackend.entitys.User;
 import vn.edu.hcmuaf.fit.ecommerceclothingbackend.repositories.UserRepository;
 
 import java.util.List;

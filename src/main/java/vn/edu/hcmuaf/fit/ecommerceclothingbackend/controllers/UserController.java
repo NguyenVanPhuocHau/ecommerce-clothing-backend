@@ -3,8 +3,7 @@ package vn.edu.hcmuaf.fit.ecommerceclothingbackend.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import vn.edu.hcmuaf.fit.ecommerceclothingbackend.models.User;
-import vn.edu.hcmuaf.fit.ecommerceclothingbackend.service.UserService;
+import vn.edu.hcmuaf.fit.ecommerceclothingbackend.entitys.User;
 import vn.edu.hcmuaf.fit.ecommerceclothingbackend.service.UserServiceImpl;
 
 import java.util.List;

@@ -1,7 +1,7 @@
 package vn.edu.hcmuaf.fit.ecommerceclothingbackend.repositories;
 
 import org.springframework.data.jpa.repository.JpaRepository;
-import vn.edu.hcmuaf.fit.ecommerceclothingbackend.models.UserOrder;
+import vn.edu.hcmuaf.fit.ecommerceclothingbackend.entitys.UserOrder;
 
 import java.util.List;
 import java.util.Optional;

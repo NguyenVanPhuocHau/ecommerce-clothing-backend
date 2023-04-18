@@ -1,24 +1,25 @@
-package vn.edu.hcmuaf.fit.ecommerceclothingbackend.models;
+package vn.edu.hcmuaf.fit.ecommerceclothingbackend.entitys;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import vn.edu.hcmuaf.fit.ecommerceclothingbackend.constant.ERole;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Setter
 @Getter
-@Entity
 @NoArgsConstructor
 @AllArgsConstructor
-public class Roles {
+@Entity
+public class ProductColor {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    @Enumerated(EnumType.STRING)
-    private ERole name;
+    private String color;
+    @OneToMany(mappedBy = "productColor")
+    private List<ProductVariants> productVariants;
 
 
 }

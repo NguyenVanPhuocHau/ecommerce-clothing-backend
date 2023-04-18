@@ -1,17 +1,11 @@
 package vn.edu.hcmuaf.fit.ecommerceclothingbackend.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import vn.edu.hcmuaf.fit.ecommerceclothingbackend.models.Product;
-import vn.edu.hcmuaf.fit.ecommerceclothingbackend.models.ProductImage;
-import vn.edu.hcmuaf.fit.ecommerceclothingbackend.payload.response.ResponseObject;
-import vn.edu.hcmuaf.fit.ecommerceclothingbackend.repositories.ProductRepository;
+import vn.edu.hcmuaf.fit.ecommerceclothingbackend.entitys.Product;
 import vn.edu.hcmuaf.fit.ecommerceclothingbackend.service.ProductService;
 
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 @RequestMapping(path = "/api/v1/Products")

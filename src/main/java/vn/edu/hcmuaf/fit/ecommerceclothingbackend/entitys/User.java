@@ -1,4 +1,4 @@
-package vn.edu.hcmuaf.fit.ecommerceclothingbackend.models;
+package vn.edu.hcmuaf.fit.ecommerceclothingbackend.entitys;
 
 import lombok.*;
 import org.springframework.stereotype.Component;
@@ -21,12 +21,15 @@ public class User {
     private int id;
     @OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
     private UserInformation information;
+    @OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
+    @PrimaryKeyJoinColumn
+    private Cart cart;
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(	name = "user_roles",
             joinColumns = @JoinColumn(name = "user_id"),
             inverseJoinColumns = @JoinColumn(name = "roles_id"))
     private Set<Roles> roles = new HashSet<>();
-    private String userName;
+    private String username;
     private String password;
     private String email;
     private String status;
@@ -35,6 +38,7 @@ public class User {
     private List<UserAddress> userAddress;
     @OneToMany(mappedBy = "user")
     private List<UserOrder> userOrder;
+
 
 
 }

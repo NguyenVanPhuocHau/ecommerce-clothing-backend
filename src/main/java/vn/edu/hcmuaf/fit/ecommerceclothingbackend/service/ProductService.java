@@ -2,7 +2,7 @@ package vn.edu.hcmuaf.fit.ecommerceclothingbackend.service;
 
 
 import org.springframework.stereotype.Service;
-import vn.edu.hcmuaf.fit.ecommerceclothingbackend.models.Product;
+import vn.edu.hcmuaf.fit.ecommerceclothingbackend.entitys.Product;
 import vn.edu.hcmuaf.fit.ecommerceclothingbackend.payload.request.ProductRequest;
 
 import javax.transaction.Transactional;
