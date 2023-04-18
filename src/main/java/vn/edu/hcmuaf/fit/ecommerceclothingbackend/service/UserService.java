@@ -2,7 +2,7 @@ package vn.edu.hcmuaf.fit.ecommerceclothingbackend.service;
 
 
 import org.springframework.stereotype.Service;
-import vn.edu.hcmuaf.fit.ecommerceclothingbackend.models.User;
+import vn.edu.hcmuaf.fit.ecommerceclothingbackend.entitys.User;
 
 import java.util.List;
 import java.util.Optional;

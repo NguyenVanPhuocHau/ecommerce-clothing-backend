@@ -1,4 +1,4 @@
-package vn.edu.hcmuaf.fit.ecommerceclothingbackend.models;
+package vn.edu.hcmuaf.fit.ecommerceclothingbackend.entitys;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

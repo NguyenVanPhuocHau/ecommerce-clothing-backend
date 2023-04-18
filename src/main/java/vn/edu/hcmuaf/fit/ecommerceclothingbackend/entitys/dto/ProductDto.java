@@ -1,4 +1,4 @@
-package vn.edu.hcmuaf.fit.ecommerceclothingbackend.models.dto;
+package vn.edu.hcmuaf.fit.ecommerceclothingbackend.entitys.dto;
 
 import java.io.Serializable;
 

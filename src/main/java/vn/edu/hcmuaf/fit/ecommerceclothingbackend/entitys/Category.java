@@ -1,4 +1,4 @@
-package vn.edu.hcmuaf.fit.ecommerceclothingbackend.models;
+package vn.edu.hcmuaf.fit.ecommerceclothingbackend.entitys;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -13,13 +13,12 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-public class Cart {
+public class Category {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    private double totalPrice;
-    @OneToMany(mappedBy = "cart")
-    private List<CartItems> cartItems;
-
+    private String name;
+    @OneToMany(mappedBy = "category")
+    private List<Product> products;
 
 }

@@ -1,4 +1,4 @@
-package vn.edu.hcmuaf.fit.ecommerceclothingbackend.models;
+package vn.edu.hcmuaf.fit.ecommerceclothingbackend.entitys;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -13,13 +13,12 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-public class ProductColor {
+public class OrderStatus {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    private String color;
-    @OneToMany(mappedBy = "productColor")
-    private List<ProductVariants> productVariants;
-
+    private String status;
+    @OneToMany(mappedBy = "orderStatus")
+    private List<UserOrder> userOrder;
 
 }

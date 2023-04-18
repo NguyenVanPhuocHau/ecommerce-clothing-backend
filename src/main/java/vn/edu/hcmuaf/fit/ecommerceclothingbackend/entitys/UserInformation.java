@@ -1,4 +1,4 @@
-package vn.edu.hcmuaf.fit.ecommerceclothingbackend.models;
+package vn.edu.hcmuaf.fit.ecommerceclothingbackend.entitys;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -7,28 +7,25 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.util.Date;
-import java.util.List;
 
 @Setter
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-public class UserOrder {
+public class UserInformation {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    @ManyToOne
+    private String lastName;
+    private String firstName;
+    private String gender;
+    private Date birthday;
+    private String avatar;
+
+    @OneToOne
     @JoinColumn(name = "user_id")
     private User user;
-    private double totalAmount;
-    @ManyToOne
-    @JoinColumn(name = "status_id")
-    private OrderStatus orderStatus;
-    private Date createAt;
-    @OneToMany(mappedBy = "order")
-    private List<OrderItem> orderItems;
-
 
 
 }

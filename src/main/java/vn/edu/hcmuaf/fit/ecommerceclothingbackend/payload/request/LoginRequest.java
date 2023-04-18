@@ -6,6 +6,8 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.springframework.stereotype.Component;
 
+import javax.validation.constraints.NotBlank;
+
 //import javax.validation.constraints.NotBlank;
 
 @Component
@@ -14,9 +16,9 @@ import org.springframework.stereotype.Component;
 @Getter
 @Setter
 public class LoginRequest {
-//	@NotBlank
+	@NotBlank
   	private String email;
-//	@NotBlank
+	@NotBlank
 	private String password;
 
 

@@ -1,6 +1,6 @@
 package vn.edu.hcmuaf.fit.ecommerceclothingbackend.service;
 
-import vn.edu.hcmuaf.fit.ecommerceclothingbackend.models.Category;
+import vn.edu.hcmuaf.fit.ecommerceclothingbackend.entitys.Category;
 
 import java.util.List;
 

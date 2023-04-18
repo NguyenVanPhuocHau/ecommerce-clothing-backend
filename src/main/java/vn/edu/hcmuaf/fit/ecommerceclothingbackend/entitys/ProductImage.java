@@ -1,4 +1,4 @@
-package vn.edu.hcmuaf.fit.ecommerceclothingbackend.models;
+package vn.edu.hcmuaf.fit.ecommerceclothingbackend.entitys;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -6,26 +6,20 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
-import java.util.Date;
 
 @Setter
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-public class UserInformation {
+public class ProductImage {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    private String lastName;
-    private String firstName;
-    private String gender;
-    private Date birthday;
-    private String avatar;
-
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "user_id")
-    private User user;
+    private Product product;
+    private String image;
 
 
 }

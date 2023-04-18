@@ -1,4 +1,4 @@
-package vn.edu.hcmuaf.fit.ecommerceclothingbackend.models;
+package vn.edu.hcmuaf.fit.ecommerceclothingbackend.entitys;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -13,18 +13,13 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-public class Product {
+public class ProductSize {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    private String productName;
-    private String productMaterial;
-    @ManyToOne(fetch = FetchType.LAZY)
-    Category category;
-    @OneToMany(mappedBy = "product")
+    private String size;
+    @OneToMany(mappedBy = "productColor")
     private List<ProductVariants> productVariants;
-    @OneToMany(mappedBy = "product")
-    private List<ProductImage> productImages;
 
 
 }
