@@ -1,5 +1,6 @@
 package vn.edu.hcmuaf.fit.ecommerceclothingbackend.entitys;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.*;
 import org.springframework.stereotype.Component;
 
@@ -20,9 +21,11 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     @OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
+    @JsonIgnoreProperties("user")
     private UserInformation information;
     @OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
     @PrimaryKeyJoinColumn
+    @JsonIgnoreProperties("user")
     private Cart cart;
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(	name = "user_roles",
@@ -33,12 +36,10 @@ public class User {
     private String password;
     private String email;
     private String status;
+    private boolean enable;
     private Calendar createAt;
     @OneToMany(mappedBy = "user")
     private List<UserAddress> userAddress;
     @OneToMany(mappedBy = "user")
     private List<UserOrder> userOrder;
-
-
-
 }

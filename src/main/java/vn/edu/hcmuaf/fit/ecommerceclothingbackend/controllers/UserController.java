@@ -6,10 +6,12 @@ import org.springframework.web.bind.annotation.*;
 import vn.edu.hcmuaf.fit.ecommerceclothingbackend.entitys.User;
 import vn.edu.hcmuaf.fit.ecommerceclothingbackend.service.UserServiceImpl;
 
+import javax.annotation.security.PermitAll;
 import java.util.List;
 import java.util.Optional;
 
 @RestController
+@PermitAll
 @RequestMapping(path = "/api/v1/Users")
 public class UserController {
     @Autowired

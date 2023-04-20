@@ -11,7 +11,12 @@ import java.util.Optional;
 //@Transactional
 @Repository
 public interface UserRepository extends JpaRepository<User,Integer> {
+    Optional<User> findUserByEmail(String email);
+
+
     Optional<User> findByEmail(String email);
+
+
 //    @Query("select u from User u join fetch u.roles where u.email=:email")
 //    User findUserHasVoucher(@Param("email") String email);
 

@@ -25,8 +25,8 @@ public class JwtTokenFilter extends OncePerRequestFilter {
 
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain chain) throws ServletException, IOException {
+        try {
         String authToken = jwtTokenUtil.getToken(request);
-
         if (authToken != null) {
             // Lấy username từ JWT
             String username = jwtTokenUtil.getUsernameFromToken(authToken);
@@ -42,6 +42,10 @@ public class JwtTokenFilter extends OncePerRequestFilter {
                 SecurityContextHolder.getContext().setAuthentication(authenticationToken);
             }
         }
+        } catch (Exception e) {
+            logger.error("Cannot set1 user authentication: {}", e);
+        }
+
 
         chain.doFilter(request, response);
     }

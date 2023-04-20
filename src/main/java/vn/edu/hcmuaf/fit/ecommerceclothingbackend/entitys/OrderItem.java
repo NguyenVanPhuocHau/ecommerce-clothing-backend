@@ -20,6 +20,7 @@ public class OrderItem {
     @JoinColumn(name = "order_id")
     private UserOrder order;
     @OneToOne
+    @MapsId
     @JoinColumn(name = "productV_id")
     private ProductVariants productVariants;
     private double priceCurrent;
