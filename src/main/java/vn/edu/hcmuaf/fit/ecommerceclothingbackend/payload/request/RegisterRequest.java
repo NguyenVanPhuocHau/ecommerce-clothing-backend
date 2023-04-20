@@ -7,6 +7,10 @@ import lombok.Setter;
 import org.springframework.stereotype.Component;
 
 //import javax.validation.constraints.*;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.Set;
 
 @Component
@@ -14,19 +18,14 @@ import java.util.Set;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class SignupRequest {
-//  @NotBlank
-  private String name;
-//  @NotBlank
-//  @Email
-  private String email;
+public class RegisterRequest {
 
-  private String phone;
-
-  private String avatar;
-//  @NotBlank
-  private String password;
-  private Set<String> role;
+    private String fullName;
+    private String username;
+    private Calendar birthday;
+    private String gender;
+    private String email;
+    private String password;
 
 
 }

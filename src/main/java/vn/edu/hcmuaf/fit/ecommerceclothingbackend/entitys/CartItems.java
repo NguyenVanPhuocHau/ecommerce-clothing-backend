@@ -22,6 +22,7 @@ public class CartItems {
     private double price;
     private int quantity;
     @OneToOne
+    @MapsId
     @JoinColumn(name = "productV_id")
     private ProductVariants productVariants;
 

@@ -1,16 +1,24 @@
 package vn.edu.hcmuaf.fit.ecommerceclothingbackend.payload.response;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.*;
 import org.springframework.stereotype.Component;
 
 @Component
 @Getter
 @Setter
-@AllArgsConstructor
 @NoArgsConstructor
+@ToString
 public class MessageResponse {
-  private String message;
+  @JsonProperty("status")
+  private int status;
+
+  @JsonProperty("msg")
+  private String msg;
+
+  public MessageResponse(int status, String msg) {
+    this.status = status;
+    this.msg = msg;
+  }
+
 }

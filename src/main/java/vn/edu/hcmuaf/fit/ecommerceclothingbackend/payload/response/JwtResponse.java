@@ -1,9 +1,6 @@
 package vn.edu.hcmuaf.fit.ecommerceclothingbackend.payload.response;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
@@ -13,6 +10,7 @@ import java.util.List;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
+@ToString
 public class JwtResponse {
 //  private String token;
 //  private int id;
@@ -25,6 +23,7 @@ public class JwtResponse {
   private String token;
   private String type = "Bearer";
   private int id;
+  private int status;
   private String username;
   private String email;
   private List<String> roles;

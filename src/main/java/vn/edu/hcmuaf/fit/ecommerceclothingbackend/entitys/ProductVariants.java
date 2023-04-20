@@ -1,5 +1,6 @@
 package vn.edu.hcmuaf.fit.ecommerceclothingbackend.entitys;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -28,8 +29,12 @@ public class ProductVariants {
     private int quantity;
     private double price;
     @OneToOne(mappedBy = "productVariants", cascade = CascadeType.ALL)
+    @PrimaryKeyJoinColumn
+    @JsonIgnoreProperties("productVariants")
     private CartItems cartItems;
     @OneToOne(mappedBy = "productVariants", cascade = CascadeType.ALL)
+    @PrimaryKeyJoinColumn
+    @JsonIgnoreProperties("productVariants")
     private OrderItem orderItem;
 
 

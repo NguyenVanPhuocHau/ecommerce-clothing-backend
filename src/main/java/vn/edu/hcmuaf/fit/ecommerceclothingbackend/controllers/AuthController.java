@@ -2,6 +2,7 @@ package vn.edu.hcmuaf.fit.ecommerceclothingbackend.controllers;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -9,15 +10,21 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
+import vn.edu.hcmuaf.fit.ecommerceclothingbackend.constant.ERole;
+import vn.edu.hcmuaf.fit.ecommerceclothingbackend.entitys.Cart;
+import vn.edu.hcmuaf.fit.ecommerceclothingbackend.entitys.Roles;
+import vn.edu.hcmuaf.fit.ecommerceclothingbackend.entitys.User;
+import vn.edu.hcmuaf.fit.ecommerceclothingbackend.entitys.UserInformation;
 import vn.edu.hcmuaf.fit.ecommerceclothingbackend.jwt.JwtUtils;
 import vn.edu.hcmuaf.fit.ecommerceclothingbackend.jwt.UserDetailsImpl;
 import vn.edu.hcmuaf.fit.ecommerceclothingbackend.payload.request.LoginRequest;
+import vn.edu.hcmuaf.fit.ecommerceclothingbackend.payload.request.RegisterRequest;
 import vn.edu.hcmuaf.fit.ecommerceclothingbackend.payload.response.JwtResponse;
+import vn.edu.hcmuaf.fit.ecommerceclothingbackend.payload.response.MessageResponse;
 import vn.edu.hcmuaf.fit.ecommerceclothingbackend.repositories.RoleRepository;
 import vn.edu.hcmuaf.fit.ecommerceclothingbackend.repositories.UserRepository;
 
 import javax.validation.Valid;
-import javax.xml.crypto.Data;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -41,10 +48,10 @@ public class AuthController {
 
     @PostMapping("/login")
     public ResponseEntity<?> authenticateUser(@Valid @RequestBody LoginRequest loginRequest) {
-
+        System.out.println(loginRequest.getEmail());
+        System.out.println(loginRequest.getPassword());
         Authentication authentication = authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(loginRequest.getEmail(), loginRequest.getPassword()));
-
         SecurityContextHolder.getContext().setAuthentication(authentication);
         String jwt = jwtUtils.generateToken(authentication);
         UserDetailsImpl userDetails = (UserDetailsImpl) authentication.getPrincipal();
@@ -60,42 +67,42 @@ public class AuthController {
 //        jwtResponse.setRoles(roles);
 //        jwtResponse.setId(userDetails.getId());
 
-        return ResponseEntity.ok(new JwtResponse(jwt, userDetails.getUsername(), userDetails.getId(), userDetails.getUsername(), userDetails.getEmail(), roles));
+        return ResponseEntity.ok(new JwtResponse(jwt, userDetails.getUsername(), userDetails.getId(), 200, userDetails.getUsername(), userDetails.getEmail(), roles));
     }
-//    @PostMapping("/check-email")
-//    public ResponseEntity<?> checkEmail(@RequestBody SignupRequest signUpRequest){
-//        if (userRepository.existsByEmail(signUpRequest.getEmail())) {
-//            return ResponseEntity.ok(true);
-//        }else{
-//            return ResponseEntity.ok(false);
-//        }
-//    }
-//
-//    @PostMapping("/signup")
-//    public ResponseEntity<?> registerUser(@Valid @RequestBody SignupRequest signUpRequest) {
-//
-//        if (userRepository.existsByEmail(signUpRequest.getEmail())) {
-//            return ResponseEntity
-//                    .badRequest()
-//                    .body(new MessageResponse("emailExist"));
-//        }
-//
-//        // Create new user's account
-////    User user = new User(signUpRequest.getEmail(),
-////               signUpRequest.getEmail(),
-////               encoder.encode(signUpRequest.getPassword()));
-//        User user = new User();
-//        user.setName(signUpRequest.getName());
-//        user.setEmail(signUpRequest.getEmail());
-//        user.setPassword(encoder.encode(signUpRequest.getPassword()));
-//        user.setPhone(signUpRequest.getPhone());
-//        user.setDatePost(Calendar.getInstance());
-//        user.setDateModified(Calendar.getInstance());
-//        user.setUserStatus("public");
-//        user.setUserParent(0);
-//        Set<String> strRoles = signUpRequest.getRole();
-//        Set<Role> roles = new HashSet<>();
-//
+
+    @PostMapping("/check-email")
+    public ResponseEntity<?> checkEmail(@RequestBody RegisterRequest registerRequest) {
+        if (userRepository.existsByEmail(registerRequest.getEmail())) {
+            return ResponseEntity.ok(true);
+        } else {
+            return ResponseEntity.ok(false);
+        }
+    }
+
+    @PostMapping("/register")
+    public ResponseEntity<?> registerUser(@Valid @RequestBody RegisterRequest registerRequest) {
+
+        if (userRepository.existsByEmail(registerRequest.getEmail())) {
+            return ResponseEntity
+                    .badRequest()
+                    .body(new MessageResponse(400, "Email đã được sử dụng!"));
+        }
+
+        User user = new User();
+        user.setUsername(registerRequest.getUsername());
+        user.setEmail(registerRequest.getEmail());
+        user.setPassword(encoder.encode(registerRequest.getPassword()));
+        UserInformation userInformation = new UserInformation();
+        userInformation.setFullName(registerRequest.getFullName());
+        userInformation.setBirthday(registerRequest.getBirthday());
+        userInformation.setGender(registerRequest.getGender());
+        userInformation.setUser(user);
+        user.setInformation(userInformation);
+        user.setCreateAt(Calendar.getInstance());
+
+        Set<Roles> roles = new HashSet<>();
+
+
 //        if (strRoles == null) {
 //            Role userRole = roleRepository.findByName(ERole.ROLE_USER)
 //                    .orElseThrow(() -> new RuntimeException("Error: Role is not found."));
@@ -115,10 +122,30 @@ public class AuthController {
 //                }
 //            });
 //        }
-//
-//        user.setRoles(roles);
-//        userRepository.save(user);
-//
-//        return ResponseEntity.ok(new MessageResponse("User registered successfully!"));
+        Roles userRole = roleRepository.findRolesByName(ERole.USER)
+                .orElseThrow(() -> new RuntimeException("Error: Role is not found."));
+        roles.add(userRole);
+        user.setRoles(roles);
+        user.setStatus("acitve");
+        user.setEnable(true);
+        Cart cart = new Cart();
+        cart.setUser(user);
+        user.setCart(cart);
+        userRepository.save(user);
+//        return ResponseEntity.ok(new MessageResponse("successfully!"));
+
+//        return ResponseEntity.status(HttpStatus.OK).body(json.toString());
+        MessageResponse messageResponse = new MessageResponse(200, "successfully!");
+        return ResponseEntity.status(HttpStatus.OK).body(messageResponse);
+    }
+
+    @GetMapping("/findEmail")
+    public Optional<User> getHau() {
+
+        return userRepository.findByEmail("nguyenhau31867@gmail.com");
+    }
+//    @GetMapping("/findEmail")
+//    public String getk() {
+//        return "ksfjdksf";
 //    }
 }
