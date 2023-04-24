@@ -1,21 +1,24 @@
 package vn.edu.hcmuaf.fit.ecommerceclothingbackend.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import vn.edu.hcmuaf.fit.ecommerceclothingbackend.entitys.Product;
 import vn.edu.hcmuaf.fit.ecommerceclothingbackend.service.ProductService;
 
+import javax.annotation.security.PermitAll;
 import java.util.List;
 
 @RestController
-@RequestMapping(path = "/api/v1/Products")
+@PermitAll
+@RequestMapping(path = "/api/v1/products")
 public class ProductController {
     @Autowired
     private ProductService productService;
 
     @GetMapping("/all")
-    List<Product> getAllProducts() {
-        return productService.getAllProduct();
+    ResponseEntity<?> getAllProducts() {
+        return ResponseEntity.ok().body(productService.getAllProduct());
     }
 
 //    @GetMapping("/{id}")

@@ -21,5 +21,8 @@ public class ProductImage {
     private Product product;
     private String image;
 
-
+    public ProductImage(Product product, String image) {
+        this.product = product;
+        this.image = image;
+    }
 }

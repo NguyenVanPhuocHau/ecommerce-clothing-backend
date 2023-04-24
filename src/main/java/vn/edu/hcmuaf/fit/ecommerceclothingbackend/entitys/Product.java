@@ -6,7 +6,9 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Setter
 @Getter
@@ -18,13 +20,46 @@ public class Product {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String productName;
-    private String productMaterial;
-    @ManyToOne(fetch = FetchType.LAZY)
-    Category category;
+    @ManyToMany(fetch = FetchType.LAZY)
+    @JoinTable(name = "product_category",
+            joinColumns = {@JoinColumn(name = "product_id")},
+            inverseJoinColumns = {@JoinColumn(name = "category_id")})
+    private Set<Category> categories = new HashSet<>();
+    @ManyToMany(fetch = FetchType.LAZY)
+    @JoinTable(name = "product_color",
+            joinColumns = {@JoinColumn(name = "product_id")},
+            inverseJoinColumns = {@JoinColumn(name = "color_id")})
+    private Set<ProductColor> productColors = new HashSet<>();
+    @ManyToMany(fetch = FetchType.LAZY)
+    @JoinTable(name = "product_size",
+            joinColumns = {@JoinColumn(name = "product_id")},
+            inverseJoinColumns = {@JoinColumn(name = "size_id")})
+    private Set<ProductSize> productSizes = new HashSet<>();
     @OneToMany(mappedBy = "product")
-    private List<ProductVariants> productVariants;
+    private List<CartItems> cartItems;
     @OneToMany(mappedBy = "product")
     private List<ProductImage> productImages;
+    private String description;
+    private String guide;
+    private double price;
 
+    private double discount;
+    private int quantity;
 
+    public Product(String productName, String description, String guide, double price, int quantity) {
+        this.productName = productName;
+        this.description = description;
+        this.guide = guide;
+        this.price = price;
+        this.quantity = quantity;
+    }
+
+    public Product(String productName, String description, String guide, double price, double discount, int quantity) {
+        this.productName = productName;
+        this.description = description;
+        this.guide = guide;
+        this.price = price;
+        this.discount = discount;
+        this.quantity = quantity;
+    }
 }

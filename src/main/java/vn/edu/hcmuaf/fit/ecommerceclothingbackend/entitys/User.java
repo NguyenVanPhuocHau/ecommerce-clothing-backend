@@ -36,7 +36,6 @@ public class User {
     private String password;
     private String email;
     private String status;
-    private boolean enable;
     private Calendar createAt;
     @OneToMany(mappedBy = "user")
     private List<UserAddress> userAddress;
