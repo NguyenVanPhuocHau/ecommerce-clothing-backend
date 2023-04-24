@@ -12,7 +12,7 @@ import java.util.Optional;
 
 @RestController
 @PermitAll
-@RequestMapping(path = "/api/v1/Users")
+@RequestMapping(path = "/api/v1/users")
 public class UserController {
     @Autowired
     private UserServiceImpl userService;
@@ -35,5 +35,9 @@ public class UserController {
     @DeleteMapping("/{id}")
     public void deleteUser(@PathVariable int id) {
         userService.deleteUser(id);
+    }
+    @GetMapping("/hau")
+    public String hau(){
+        return "hau";
     }
 }

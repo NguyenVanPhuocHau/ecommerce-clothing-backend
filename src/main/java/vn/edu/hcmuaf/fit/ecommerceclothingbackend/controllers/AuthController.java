@@ -127,7 +127,6 @@ public class AuthController {
         roles.add(userRole);
         user.setRoles(roles);
         user.setStatus("acitve");
-        user.setEnable(true);
         Cart cart = new Cart();
         cart.setUser(user);
         user.setCart(cart);
@@ -140,9 +139,9 @@ public class AuthController {
     }
 
     @GetMapping("/findEmail")
-    public Optional<User> getHau() {
+    public String getHau() {
 
-        return userRepository.findByEmail("nguyenhau31867@gmail.com");
+        return "jkaslkdfjas";
     }
 //    @GetMapping("/findEmail")
 //    public String getk() {

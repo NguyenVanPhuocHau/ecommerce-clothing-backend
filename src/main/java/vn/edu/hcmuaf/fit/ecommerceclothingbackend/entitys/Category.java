@@ -6,7 +6,9 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Setter
 @Getter
@@ -18,7 +20,10 @@ public class Category {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String name;
-    @OneToMany(mappedBy = "category")
-    private List<Product> products;
+//    @ManyToMany(mappedBy = "categories")
+//    private Set<Product> products = new HashSet<>();
 
+    public Category(String name) {
+        this.name = name;
+    }
 }

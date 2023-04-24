@@ -7,9 +7,9 @@ import java.util.List;
 import java.util.Optional;
 
 
-public interface CartRepository extends JpaRepository<Cart,Long> {
-    @Override
-    Optional<Cart> findById(Long aLong);
+public interface CartRepository extends JpaRepository<Cart,Integer> {
+//    @Override
+//    Optional<Cart> findById(Long aLong);
 
     @Override
     List<Cart> findAll();

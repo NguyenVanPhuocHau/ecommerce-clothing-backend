@@ -6,7 +6,9 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Setter
 @Getter
@@ -19,7 +21,12 @@ public class ProductSize {
     private int id;
     private String size;
     @OneToMany(mappedBy = "productColor")
-    private List<ProductVariants> productVariants;
+    private List<CartItems> cartItems;
+//    @ManyToMany(mappedBy = "categories")
+//    private Set<Product> products = new HashSet<>();
 
+    public ProductSize(String size) {
+        this.size = size;
+    }
 
 }
