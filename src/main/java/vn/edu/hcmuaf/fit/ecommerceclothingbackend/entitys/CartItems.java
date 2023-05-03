@@ -32,9 +32,11 @@ public class CartItems {
     private int Id;
     @ManyToOne
     @JoinColumn(name = "product_id")
+//    @JsonIgnoreProperties("cartItems")
     private Product product;
     @ManyToOne
     @JoinColumn(name = "size_id")
+//    @JsonIgnoreProperties("cartItems")
     private ProductSize productSize;
     @ManyToOne
     @JoinColumn(name = "color_id")
@@ -51,5 +53,6 @@ public class CartItems {
 //    private OrderItem orderItem;
     @ManyToOne
     @JoinColumn(name = "cart_id")
+    @JsonIgnoreProperties("cartItems")
     private Cart cart;
 }

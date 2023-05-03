@@ -20,5 +20,7 @@ public class Roles {
     @Enumerated(EnumType.STRING)
     private ERole name;
 
-
+    public Roles(ERole name) {
+        this.name = name;
+    }
 }

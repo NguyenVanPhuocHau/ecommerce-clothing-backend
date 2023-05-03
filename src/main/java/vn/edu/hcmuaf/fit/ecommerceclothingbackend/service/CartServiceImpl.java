@@ -1,0 +1,51 @@
+package vn.edu.hcmuaf.fit.ecommerceclothingbackend.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import vn.edu.hcmuaf.fit.ecommerceclothingbackend.entitys.Cart;
+import vn.edu.hcmuaf.fit.ecommerceclothingbackend.entitys.CartItems;
+import vn.edu.hcmuaf.fit.ecommerceclothingbackend.entitys.Product;
+import vn.edu.hcmuaf.fit.ecommerceclothingbackend.repositories.*;
+
+import java.util.List;
+
+@Service
+public class CartServiceImpl implements  CartService{
+    @Autowired
+    CartRepository cartRepository;
+    @Autowired
+    CartItemsRepository cartItemsRepository;
+    @Autowired
+    ProductRepository productRepository;
+    @Autowired
+    ColorRepository colorRepository;
+    @Autowired
+    SizeRepository sizeRepository;
+    @Override
+    public void addProduct(int idProduct, int idUser, int idColor, int idSize, int quantity) {
+        CartItems item = new CartItems();
+        Product product = productRepository.getById(idProduct);
+        item.setCart(cartRepository.getById(idUser));
+        item.setProduct(product);
+        item.setProductColor(colorRepository.findById(idColor).get());
+        item.setProductSize(sizeRepository.findById(idSize).get());
+        item.setQuantity(quantity);
+        item.setPrice(product.getPrice());
+        cartItemsRepository.save(item);
+        Cart cart = cartRepository.getById(idUser);
+        double totalPrice = product.getPrice() * quantity;
+        cart.setTotalPrice(cart.getTotalPrice()+totalPrice);
+        cartRepository.save(cart);
+
+    }
+
+    @Override
+    public void removeProduct(int idProduct, int idUser, int idColor, int idSize) {
+
+    }
+
+    @Override
+    public List<CartItems> findAllCartItemsById(int idUser) {
+        return cartItemsRepository.findByCart_id(idUser);
+    }
+}

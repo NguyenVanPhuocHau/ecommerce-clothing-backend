@@ -7,10 +7,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import vn.edu.hcmuaf.fit.ecommerceclothingbackend.constant.ERole;
 import vn.edu.hcmuaf.fit.ecommerceclothingbackend.entitys.*;
-import vn.edu.hcmuaf.fit.ecommerceclothingbackend.repositories.CategoryRepository;
-import vn.edu.hcmuaf.fit.ecommerceclothingbackend.repositories.ColorRepository;
-import vn.edu.hcmuaf.fit.ecommerceclothingbackend.repositories.ProductRepository;
-import vn.edu.hcmuaf.fit.ecommerceclothingbackend.repositories.SizeRepository;
+import vn.edu.hcmuaf.fit.ecommerceclothingbackend.repositories.*;
 
 import java.util.*;
 
@@ -19,12 +16,15 @@ public class Database {
     private static final Logger logger = LoggerFactory.getLogger(Database.class);
 
     @Bean
-    CommandLineRunner initDatabase(ProductRepository productRepository, ColorRepository colorRepository, SizeRepository sizeRepository, CategoryRepository categoryRepository) {
+    CommandLineRunner initDatabase(ProductRepository productRepository, ColorRepository colorRepository, SizeRepository sizeRepository, CategoryRepository categoryRepository, RoleRepository roleRepository) {
 
         return new CommandLineRunner() {
             @Override
             public void run(String... args) throws Exception {
 //                IMPORT SIZE VÀO DATABASE
+                //ROLE
+                roleRepository.save(new Roles(ERole.ROLE_USER));
+                roleRepository.save(new Roles(ERole.ROLE_ADMIN));
 
 //                ProductSize size1 = new ProductSize("XS");
 //                ProductSize size2 = new ProductSize("S");
