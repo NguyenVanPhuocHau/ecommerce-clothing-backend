@@ -177,8 +177,62 @@ public class Database {
 //                p3.setProductSizes(productSizes);
 //                productRepository.save(p3);
 
+                // PRODUCT 4
+//                Product p4 = new Product("Áo phông nam", "Áo phông chất liệu 100% cotton, cổ tròn tra bo, tay cộc, phom relax.", "Giặt máy ở chế độ nhẹ, nhiệt độ thường.\n" +
+//                        "Không sử dụng hóa chất tẩy có chứa Clo.\n" +
+//                        "Phơi trong bóng mát.\n" +
+//                        "Sấy thùng, chế độ nhẹ nhàng.\n" +
+//                        "Là ở nhiệt độ trung bình 150 độ C.\n" +
+//                        "Giặt với sản phẩm cùng màu.\n" +
+//                        "Không là lên chi tiết trang trí.", 299000, 0, 100);
+//                categories.add(categoryRepository.findById(1).get());
+//                categories.add(categoryRepository.findById(5).get());
+//                p4.setCategories(categories);
+//                listImg.add(new ProductImage(p4, "https://canifa.com/img/212/284/resize/8/t/8ts23s013-so221-xl-1.webp"));
+//                listImg.add(new ProductImage(p4, "https://canifa.com/img/212/284/resize/8/t/8ts23s013-so221-xl-2.webp"));
+//                p4.setProductImages(listImg);
+//                productColors.add(colorRepository.findByColorCode("so221"));
+//                p4.setProductColors(productColors);
+//                for (int i = 2; i < 6; i++) {
+//                    productSizes.add(sizeRepository.findById(i).get());
+//                }
+//                p4.setProductSizes(productSizes);
+//                p4.setEvent("mới");
+//                productRepository.save(p4);
 
+                //PRODUCT 5
 
+//                Product p5 = new Product("Áo polo nam", "Áo polo chất liệu cotton pha, cổ bẻ tay cộc, phom regular.", "Giặt máy ở chế độ nhẹ, nhiệt độ thường.\n" +
+//                        "Không sử dụng hóa chất tẩy có chứa Clo.\n" +
+//                        "Phơi trong bóng mát.\n" +
+//                        "Sấy thùng, chế độ nhẹ nhàng.\n" +
+//                        "Là ở nhiệt độ trung bình 150 độ C.\n" +
+//                        "Giặt với sản phẩm cùng màu.\n" +
+//                        "Không là lên chi tiết trang trí.", 291000, 0.12, 100);
+//                categories.add(categoryRepository.findById(1).get());
+//                categories.add(categoryRepository.findById(5).get());
+//                p5.setCategories(categories);
+//                listImg.add(new ProductImage(p5, "https://canifa.com/img/212/284/resize/8/t/8tp23a001-sa010-1.webp"));
+//                listImg.add(new ProductImage(p5, "https://canifa.com/img/212/284/resize/8/t/8tp23a001-sa010-2.webp"));
+//                listImg.add(new ProductImage(p5, "https://canifa.com/img/212/284/resize/8/t/8tp23a001-sa010-xl-1.webp"));
+//                listImg.add(new ProductImage(p5, "https://canifa.com/img/212/284/resize/8/t/8tp23a001-sb422-xl-2.webp"));
+//                p5.setProductImages(listImg);
+//                colorRepository.save(new ProductColor("sg543","xanh lục"));
+//                productColors.add(colorRepository.findByColorCode("sg543"));
+//                colorRepository.save(new ProductColor("sn281","đỏ gạch"));
+//                productColors.add(colorRepository.findByColorCode("sn281"));
+//                colorRepository.save(new ProductColor("sa010","xám trắng"));
+//                productColors.add(colorRepository.findByColorCode("sa010"));
+//                colorRepository.save(new ProductColor("sb422","xanh đương đen"));
+//                productColors.add(colorRepository.findByColorCode("sb422"));
+//                productColors.add(colorRepository.findByColorCode("sk010"));
+//                p5.setProductColors(productColors);
+//                for (int i = 2; i < 7; i++) {
+//                    productSizes.add(sizeRepository.findById(i).get());
+//                }
+//                p5.setProductSizes(productSizes);
+//                p5.setEvent("giá tốt");
+//                productRepository.save(p5);
 
 
 //

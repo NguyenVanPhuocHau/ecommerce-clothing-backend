@@ -1,11 +1,13 @@
 package vn.edu.hcmuaf.fit.ecommerceclothingbackend.entitys;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -37,8 +39,10 @@ public class Product {
     private Set<ProductSize> productSizes = new HashSet<>();
     @OneToMany(mappedBy = "product")
     private List<CartItems> cartItems;
-    @OneToMany(mappedBy = "product")
-    private List<ProductImage> productImages;
+    @OneToMany(mappedBy = "product", cascade = CascadeType.ALL)
+    @JsonIgnoreProperties("product")
+    private List<ProductImage> productImages = new ArrayList<>();
+    private String event;
     private String description;
     private String guide;
     private double price;

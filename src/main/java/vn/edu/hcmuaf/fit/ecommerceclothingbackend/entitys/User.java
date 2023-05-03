@@ -37,8 +37,10 @@ public class User {
     private String email;
     private String status;
     private Calendar createAt;
-    @OneToMany(mappedBy = "user")
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    @JsonIgnoreProperties("user")
     private List<UserAddress> userAddress;
-    @OneToMany(mappedBy = "user")
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    @JsonIgnoreProperties("user")
     private List<UserOrder> userOrder;
 }
