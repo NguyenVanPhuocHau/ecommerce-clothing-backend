@@ -21,8 +21,8 @@ public class ProductColor {
     private int id;
     private String colorCode;
     private  String color;
-    @OneToMany(mappedBy = "productColor")
-    private List<CartItems> cartItems;
+//    @OneToMany(mappedBy = "productColor")
+//    private List<CartItems> cartItems;
 //    @ManyToMany(mappedBy = "categories")
 //    private Set<Product> products = new HashSet<>();
 

@@ -37,8 +37,9 @@ public class Product {
             joinColumns = {@JoinColumn(name = "product_id")},
             inverseJoinColumns = {@JoinColumn(name = "size_id")})
     private Set<ProductSize> productSizes = new HashSet<>();
-    @OneToMany(mappedBy = "product")
-    private List<CartItems> cartItems;
+//    @OneToMany(mappedBy = "product")
+////    @JsonIgnoreProperties("product")
+//    private List<CartItems> cartItems;
     @OneToMany(mappedBy = "product", cascade = CascadeType.ALL)
     @JsonIgnoreProperties("product")
     private List<ProductImage> productImages = new ArrayList<>();

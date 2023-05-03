@@ -1,5 +1,6 @@
 package vn.edu.hcmuaf.fit.ecommerceclothingbackend.entitys;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -23,6 +24,7 @@ public class Cart {
     @OneToOne
     @MapsId
     @JoinColumn(name = "user_id")
+    @JsonIgnoreProperties("cart")
     private User user;
 
 }

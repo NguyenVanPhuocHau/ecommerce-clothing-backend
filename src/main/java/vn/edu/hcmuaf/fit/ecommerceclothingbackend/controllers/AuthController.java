@@ -122,7 +122,7 @@ public class AuthController {
 //                }
 //            });
 //        }
-        Roles userRole = roleRepository.findRolesByName(ERole.USER)
+        Roles userRole = roleRepository.findRolesByName(ERole.ROLE_USER)
                 .orElseThrow(() -> new RuntimeException("Error: Role is not found."));
         roles.add(userRole);
         user.setRoles(roles);
