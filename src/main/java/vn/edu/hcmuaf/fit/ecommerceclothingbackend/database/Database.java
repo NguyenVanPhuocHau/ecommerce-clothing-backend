@@ -21,11 +21,12 @@ public class Database {
         return new CommandLineRunner() {
             @Override
             public void run(String... args) throws Exception {
-//                IMPORT SIZE VÀO DATABASE
-                //ROLE
-                roleRepository.save(new Roles(ERole.ROLE_USER));
-                roleRepository.save(new Roles(ERole.ROLE_ADMIN));
 
+                //ROLE
+//                roleRepository.save(new Roles(ERole.ROLE_USER));
+//                roleRepository.save(new Roles(ERole.ROLE_ADMIN));
+
+                //IMPORT SIZE VÀO DATABASE
 //                ProductSize size1 = new ProductSize("XS");
 //                ProductSize size2 = new ProductSize("S");
 //                ProductSize size3 = new ProductSize("M");
@@ -38,7 +39,7 @@ public class Database {
 //                sizeRepository.save(size4);
 //                sizeRepository.save(size5);
 //                sizeRepository.save(size6);
-
+//
 //                for (int i = 90; i <= 160; i+=10) {
 //                    ProductSize size = new ProductSize(i+"");
 //                    sizeRepository.save(size);
@@ -47,36 +48,27 @@ public class Database {
                 // IMPORT COLOR VÀO DATABASE
 
 
-//                ProductColor c2 = new ProductColor("sg529","mạ");
-//                ProductColor c3 = new ProductColor("sn198","nâu");
-//                ProductColor c4 = new ProductColor("sb060","đen");
-//                ProductColor c5 = new ProductColor("sm485","hồng");
-//                ProductColor c6 = new ProductColor("sa344","xám");
-//                ProductColor c7 = new ProductColor("sb120","xanh dương");
-//                ProductColor c8 = new ProductColor("sp071","xanh tím");
-//                ProductColor c9 = new ProductColor("sy059","caro vàng");
-//                ProductColor c10 = new ProductColor("sb146","xanh da trời");
-//                ProductColor c11 = new ProductColor("sw001","trắng");
-//                ProductColor c12 = new ProductColor("sg044","xanh lá");
-//                ProductColor c13 = new ProductColor("so221","cam");
-//                ProductColor c14 = new ProductColor("sg428","mạ xanh");
-//                ProductColor c15 = new ProductColor("sn265","da");
-//                ProductColor c16 = new ProductColor("sm197","đỏ");
-//                ProductColor c17 = new ProductColor("fm217","caro hồng");
-//                ProductColor c18 = new ProductColor("fm218","bi hồng");
+//                colorRepository.save(new ProductColor("sg529","mạ"));
+//                colorRepository.save(new ProductColor("sn198","nâu"));
+//                colorRepository.save(new ProductColor("sb060","đen"));
+//                colorRepository.save(new ProductColor("sm485","hồng"));
+//                colorRepository.save(new ProductColor("sa344","xám"));
+//                colorRepository.save(new ProductColor("sb120","xanh dương"));
+//                colorRepository.save( new ProductColor("sp071","xanh tím"));
+//                colorRepository.save(new ProductColor("sy059","caro vàng"));
+//                colorRepository.save(new ProductColor("sb146","xanh da trời"));
+//                colorRepository.save(new ProductColor("sw001","trắng"));
+//                colorRepository.save(new ProductColor("sg044","xanh lá"));
+//                colorRepository.save(new ProductColor("so221","cam"));
+//                colorRepository.save(new ProductColor("sg428","mạ xanh"));
+//                colorRepository.save(new ProductColor("sn265","da"));
+//                colorRepository.save(new ProductColor("sm197","đỏ"));
+//                colorRepository.save(new ProductColor("fm217","caro hồng"));
+//                colorRepository.save(new ProductColor("fm218","bi hồng"));
 //                colorRepository.save(new ProductColor("sa014","xám"));
 //                colorRepository.save(new ProductColor("sm001","hồng phấn"));
 //                colorRepository.save(new ProductColor("sk010","đen"));
-//                colorRepository.save(c11);
-//                colorRepository.save(c12);
-//                colorRepository.save(c13);
-//                colorRepository.save(c14);
-//                colorRepository.save(c15);
-//                colorRepository.save(c16);
-//                colorRepository.save(c17);
-//                colorRepository.save(c18);
-//                colorRepository.save(c19);
-//                colorRepository.save(c10);
+
 
 //                    IMPORT CATORY VÀO DATABASE
 //                Category c1 =  new Category("Nam");
@@ -100,6 +92,7 @@ public class Database {
                 Set<ProductSize> productSizes = new HashSet<>();
                 Set<ProductColor> productColors = new HashSet<>();
                 //product 1
+
 //                Product p1 = new Product("Bộ mặc nhà nữ có hình in", "Bộ mặc nhà chất liệu 100% cotton, áo cổ tròn tay cộc, quần lửng cạp chun.", "Giặt máy ở chế độ nhẹ, nhiệt độ thường.\n" +
 //                        "Không sử dụng hóa chất tẩy có chứa Clo.\n" +
 //                        "Phơi trong bóng mát.\n" +
