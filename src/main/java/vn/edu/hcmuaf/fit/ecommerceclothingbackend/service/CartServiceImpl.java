@@ -8,6 +8,7 @@ import vn.edu.hcmuaf.fit.ecommerceclothingbackend.entitys.Product;
 import vn.edu.hcmuaf.fit.ecommerceclothingbackend.repositories.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class CartServiceImpl implements  CartService{
@@ -40,6 +41,20 @@ public class CartServiceImpl implements  CartService{
     }
 
     @Override
+    public void removeFromCart(int id) {
+        cartItemsRepository.deleteById(id);
+    }
+
+    @Override
+    public void saveCartItems(CartItems cartItems) {
+        cartItemsRepository.save(cartItems);
+        Cart cart = cartItems.getCart();
+        Product product = cartItems.getProduct();
+        cart.setTotalPrice(cart.getTotalPrice()+product.getPrice());
+        cartRepository.save(cart);
+    }
+
+    @Override
     public void removeProduct(int idProduct, int idUser, int idColor, int idSize) {
 
     }
@@ -47,5 +62,15 @@ public class CartServiceImpl implements  CartService{
     @Override
     public List<CartItems> findAllCartItemsById(int idUser) {
         return cartItemsRepository.findByCart_id(idUser);
+    }
+
+    @Override
+    public Optional<CartItems> findCartItemById(int id) {
+        return cartItemsRepository.findById(id);
+    }
+
+    @Override
+    public Optional<CartItems> findByCart_idAndProduct_idAndSize_IdAndColor_id(int cartId, int productId, int sizeId, int colorId) {
+        return cartItemsRepository.findByCart_idAndProduct_idAndProductSize_idAndProductColor_id(cartId,productId,sizeId,colorId);
     }
 }
