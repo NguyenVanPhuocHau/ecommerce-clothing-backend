@@ -1,10 +1,11 @@
-package vn.edu.hcmuaf.fit.ecommerceclothingbackend.service;
+package vn.edu.hcmuaf.fit.ecommerceclothingbackend.service.implement;
 
 import vn.edu.hcmuaf.fit.ecommerceclothingbackend.entitys.Category;
+import vn.edu.hcmuaf.fit.ecommerceclothingbackend.service.CategoryService;
 
 import java.util.List;
 
-public class CategoryServiceImp implements  CategoryService{
+public class CategoryServiceImp implements CategoryService {
     @Override
     public List<Category> getCategoryByGender(String gender) {
         return null;

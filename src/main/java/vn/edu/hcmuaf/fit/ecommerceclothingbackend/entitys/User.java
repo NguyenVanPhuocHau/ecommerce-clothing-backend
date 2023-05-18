@@ -15,6 +15,7 @@ import java.util.*;
 @ToString
 @Component
 @Table(name = "user")
+@JsonIgnoreProperties({"userAddress","password","userOrder","cart","information"})
 public class User {
 
     @Id
