@@ -28,6 +28,8 @@ public class UserOrder {
     private Date createAt;
     @OneToMany(mappedBy = "order")
     private List<OrderItem> orderItems;
+    private String payment;
+    private double discountPrice;
 
 
 

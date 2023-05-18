@@ -1,5 +1,6 @@
 package vn.edu.hcmuaf.fit.ecommerceclothingbackend.entitys;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -13,6 +14,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
+@JsonIgnoreProperties("userOrder")
 public class OrderStatus {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -21,4 +23,7 @@ public class OrderStatus {
     @OneToMany(mappedBy = "orderStatus")
     private List<UserOrder> userOrder;
 
+    public OrderStatus(String status) {
+        this.status = status;
+    }
 }

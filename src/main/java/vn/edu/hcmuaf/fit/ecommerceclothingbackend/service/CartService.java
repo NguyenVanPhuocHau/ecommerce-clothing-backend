@@ -1,6 +1,7 @@
 package vn.edu.hcmuaf.fit.ecommerceclothingbackend.service;
 
 import vn.edu.hcmuaf.fit.ecommerceclothingbackend.entitys.CartItems;
+import vn.edu.hcmuaf.fit.ecommerceclothingbackend.entitys.UserAddress;
 
 import java.util.List;
 import java.util.Optional;
@@ -18,4 +19,6 @@ public interface CartService {
     public Optional<CartItems> findCartItemById(int id);
 
     public Optional<CartItems> findByCart_idAndProduct_idAndSize_IdAndColor_id(int cartId, int productId, int sizeId, int colorId);
+
+
 }

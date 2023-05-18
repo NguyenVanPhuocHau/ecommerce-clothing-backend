@@ -1,4 +1,4 @@
-package vn.edu.hcmuaf.fit.ecommerceclothingbackend.service;
+package vn.edu.hcmuaf.fit.ecommerceclothingbackend.service.implement;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -6,12 +6,13 @@ import vn.edu.hcmuaf.fit.ecommerceclothingbackend.entitys.Cart;
 import vn.edu.hcmuaf.fit.ecommerceclothingbackend.entitys.CartItems;
 import vn.edu.hcmuaf.fit.ecommerceclothingbackend.entitys.Product;
 import vn.edu.hcmuaf.fit.ecommerceclothingbackend.repositories.*;
+import vn.edu.hcmuaf.fit.ecommerceclothingbackend.service.CartService;
 
 import java.util.List;
 import java.util.Optional;
 
 @Service
-public class CartServiceImpl implements  CartService{
+public class CartServiceImpl implements CartService {
     @Autowired
     CartRepository cartRepository;
     @Autowired

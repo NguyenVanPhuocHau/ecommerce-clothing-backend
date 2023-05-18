@@ -22,6 +22,8 @@ public class DataLoader implements CommandLineRunner {
 
     private final CategoryRepository categoryRepository;
 
+    private final  OrderStatusRepository orderStatusRepository;
+
     @Override
     public void run(String... args) throws Exception {
         if (roleCheckExist()) {
@@ -38,6 +40,9 @@ public class DataLoader implements CommandLineRunner {
         }
         if (productCheckExist()) {
             createProduct();
+        }
+        if (orderStatusCheckExist()){
+            createOrderStatus();
         }
 
     }
@@ -265,6 +270,14 @@ public class DataLoader implements CommandLineRunner {
 
     }
 
+    public void createOrderStatus(){
+        orderStatusRepository.save(new OrderStatus("Đang chờ xử lý"));
+        orderStatusRepository.save(new OrderStatus("Đang xử lý"));
+        orderStatusRepository.save(new OrderStatus("Đang giao hàng"));
+        orderStatusRepository.save(new OrderStatus("Đã giao hàng"));
+        orderStatusRepository.save(new OrderStatus("Đã hủy"));
+    }
+
     public boolean roleCheckExist() {
         return roleRepository.findAll().isEmpty();
     }
@@ -283,6 +296,10 @@ public class DataLoader implements CommandLineRunner {
 
     public boolean catoryCheckExist() {
         return categoryRepository.findAll().isEmpty();
+    }
+
+    public boolean orderStatusCheckExist() {
+        return orderStatusRepository.findAll().isEmpty();
     }
 
 

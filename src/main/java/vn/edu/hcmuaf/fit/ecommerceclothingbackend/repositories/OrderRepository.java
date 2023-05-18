@@ -6,13 +6,13 @@ import vn.edu.hcmuaf.fit.ecommerceclothingbackend.entitys.UserOrder;
 import java.util.List;
 import java.util.Optional;
 
-public interface OrderRepository extends JpaRepository<UserOrder,Long> {
+public interface OrderRepository extends JpaRepository<UserOrder,Integer> {
 
-    @Override
-    Optional<UserOrder> findById(Long aLong);
-
-    @Override
-    List<UserOrder> findAllById(Iterable<Long> longs);
+//    @Override
+//    Optional<UserOrder> findById(Long aLong);
+//
+//    @Override
+//    List<UserOrder> findAllById(Iterable<Long> longs);
 
 
 }

@@ -59,9 +59,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity httpSecurity) throws Exception {
         httpSecurity.cors().and().csrf().disable()
                 .authorizeRequests().antMatchers("/api/auth/**").permitAll()
-                .antMatchers("/api/v1/Users/**").permitAll()
+                .antMatchers("/api/v1/users/**").permitAll()
                 .antMatchers("/api/v1/products/**").permitAll()
                 .antMatchers("/api/v1/cart/**").permitAll()
+                .antMatchers("/api/v1/payment/**").permitAll()
+                .antMatchers("/api/v1/order/**").permitAll()
                 .anyRequest().authenticated().and()
                 .exceptionHandling().authenticationEntryPoint(jwtAuthenticationEntryPoint).and().sessionManagement()
                 .sessionCreationPolicy(SessionCreationPolicy.STATELESS);

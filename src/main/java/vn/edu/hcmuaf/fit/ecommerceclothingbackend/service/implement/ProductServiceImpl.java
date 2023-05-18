@@ -1,15 +1,16 @@
-package vn.edu.hcmuaf.fit.ecommerceclothingbackend.service;
+package vn.edu.hcmuaf.fit.ecommerceclothingbackend.service.implement;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import vn.edu.hcmuaf.fit.ecommerceclothingbackend.entitys.Product;
 import vn.edu.hcmuaf.fit.ecommerceclothingbackend.payload.request.ProductRequest;
 import vn.edu.hcmuaf.fit.ecommerceclothingbackend.repositories.ProductRepository;
+import vn.edu.hcmuaf.fit.ecommerceclothingbackend.service.ProductService;
 
 import java.util.List;
 
 @Service
-public class ProductServiceImpl implements  ProductService{
+public class ProductServiceImpl implements ProductService {
 
     @Autowired
     ProductRepository productRepository;
