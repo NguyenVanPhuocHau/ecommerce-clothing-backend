@@ -74,4 +74,9 @@ public class CartServiceImpl implements CartService {
     public Optional<CartItems> findByCart_idAndProduct_idAndSize_IdAndColor_id(int cartId, int productId, int sizeId, int colorId) {
         return cartItemsRepository.findByCart_idAndProduct_idAndProductSize_idAndProductColor_id(cartId,productId,sizeId,colorId);
     }
+
+    @Override
+    public void removeCartItemsById(int id) {
+        cartItemsRepository.deleteById(id);
+    }
 }

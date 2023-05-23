@@ -146,6 +146,7 @@ public class DataLoader implements CommandLineRunner {
         for (int i = 2; i < 6; i++) {
             productSizes.add(sizeRepository.findById(i).get());
         }
+
         p1.setProductSizes(productSizes);
         productRepository.save(p1);
 //        product 2

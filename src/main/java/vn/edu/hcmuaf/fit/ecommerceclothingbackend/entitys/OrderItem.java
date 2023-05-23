@@ -13,6 +13,7 @@ import javax.persistence.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
+@JsonIgnoreProperties("order")
 public class OrderItem {
 //    @Id
 //    @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -49,6 +50,7 @@ public class OrderItem {
 //    @PrimaryKeyJoinColumn
 //    @JsonIgnoreProperties("productVariants")
 //    private OrderItem orderItem;
+
     @ManyToOne
     @JoinColumn(name = "order_id")
     private UserOrder order;

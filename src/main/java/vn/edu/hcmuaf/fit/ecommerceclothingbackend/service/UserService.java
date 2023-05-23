@@ -19,5 +19,7 @@ public interface UserService {
      List<UserAddress> getAllAddressByUserId(int id);
      void addNewAddress(UserAddress userAddress);
 
-     Optional<UserAddress> getDefaultAddress(int id);
+     Optional<UserAddress> getDefaultAddressByUserId(int id);
+    Optional<UserAddress> getAddressById(int id);
+
 }
