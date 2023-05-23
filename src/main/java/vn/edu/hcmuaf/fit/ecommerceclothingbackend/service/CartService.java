@@ -20,5 +20,6 @@ public interface CartService {
 
     public Optional<CartItems> findByCart_idAndProduct_idAndSize_IdAndColor_id(int cartId, int productId, int sizeId, int colorId);
 
+    public void removeCartItemsById(int id);
 
 }

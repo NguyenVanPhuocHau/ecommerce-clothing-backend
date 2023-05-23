@@ -17,6 +17,7 @@ public class OrderUserService implements IOrderUserService {
 
     @Override
     public List<OrderItem> saveOrder(UserOrder userOrder) {
-        return orderRepository.save(userOrder).getOrderItems();
+        orderRepository.save(userOrder);
+        return userOrder.getOrderItems();
     }
 }

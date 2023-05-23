@@ -1,5 +1,6 @@
 package vn.edu.hcmuaf.fit.ecommerceclothingbackend.entitys;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -20,16 +21,20 @@ public class UserOrder {
     private int id;
     @ManyToOne
     @JoinColumn(name = "user_id")
+//    @JsonIgnore
     private User user;
     private double totalAmount;
     @ManyToOne
     @JoinColumn(name = "status_id")
     private OrderStatus orderStatus;
     private Date createAt;
-    @OneToMany(mappedBy = "order")
+    @OneToMany(mappedBy = "order", cascade = CascadeType.ALL)
     private List<OrderItem> orderItems;
     private String payment;
     private double discountPrice;
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "address_id", referencedColumnName = "id")
+    private UserAddress address;
 
 
 

@@ -15,5 +15,6 @@ public class SaveOrderRequest {
     private int userId;
     private double totalAmount;
     private String payment;
-    private double discountprice;
+    private double discountPrice;
+    private int addressId;
 }

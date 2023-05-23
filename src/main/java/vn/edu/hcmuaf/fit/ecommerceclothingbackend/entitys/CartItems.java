@@ -13,6 +13,7 @@ import javax.persistence.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
+@JsonIgnoreProperties("cart")
 public class CartItems {
 //    @Id
 //    @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -53,6 +54,6 @@ public class CartItems {
 //    private OrderItem orderItem;
     @ManyToOne
     @JoinColumn(name = "cart_id")
-    @JsonIgnoreProperties("cartItems")
+//    @JsonIgnoreProperties("cartItems")
     private Cart cart;
 }

@@ -55,7 +55,12 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public Optional<UserAddress> getDefaultAddress(int id) {
+    public Optional<UserAddress> getDefaultAddressByUserId(int id) {
         return userAddressRepository.findByUser_idAndIsDefault(id,true);
+    }
+
+    @Override
+    public Optional<UserAddress> getAddressById(int id) {
+        return userAddressRepository.findById(id);
     }
 }

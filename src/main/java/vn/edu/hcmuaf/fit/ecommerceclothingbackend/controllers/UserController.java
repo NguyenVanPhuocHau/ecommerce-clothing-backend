@@ -67,6 +67,6 @@ public class UserController {
     }
     @GetMapping("/addressDefault/{id}")
     public ResponseEntity<?> getAddressDefaultById(@PathVariable int id) {
-        return ResponseEntity.ok().body(userService.getDefaultAddress(id));
+        return ResponseEntity.ok().body(userService.getDefaultAddressByUserId(id));
     }
 }
