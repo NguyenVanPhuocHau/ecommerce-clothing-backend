@@ -1,6 +1,7 @@
 package vn.edu.hcmuaf.fit.ecommerceclothingbackend.service;
 
 
+import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Service;
 import vn.edu.hcmuaf.fit.ecommerceclothingbackend.entitys.Product;
 import vn.edu.hcmuaf.fit.ecommerceclothingbackend.payload.request.ProductRequest;
@@ -21,4 +22,6 @@ public interface ProductService {
     public void deleteProduct(int id);
 
     public List<Product> getAllProduct();
+
+    public Page<Product> getProductPage(int page, int limit, String[] sizeIds, String[] colorIds, String[] priceRange);
 }

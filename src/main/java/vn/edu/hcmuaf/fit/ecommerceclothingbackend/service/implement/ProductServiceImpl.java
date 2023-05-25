@@ -1,13 +1,21 @@
 package vn.edu.hcmuaf.fit.ecommerceclothingbackend.service.implement;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import vn.edu.hcmuaf.fit.ecommerceclothingbackend.entitys.Product;
+import vn.edu.hcmuaf.fit.ecommerceclothingbackend.exception.ServerError;
 import vn.edu.hcmuaf.fit.ecommerceclothingbackend.payload.request.ProductRequest;
 import vn.edu.hcmuaf.fit.ecommerceclothingbackend.repositories.ProductRepository;
 import vn.edu.hcmuaf.fit.ecommerceclothingbackend.service.ProductService;
 
+
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Service
 public class ProductServiceImpl implements ProductService {
@@ -57,5 +65,22 @@ public class ProductServiceImpl implements ProductService {
     @Override
     public List<Product> getAllProduct() {
         return productRepository.findAll();
+    }
+
+    @Override
+    public Page<Product> getProductPage(int page, int limit, String[] arrSize, String[] arrColor, String[] priceRange) {
+        try {
+
+
+            Pageable pagination = PageRequest.of(page, limit);
+            Page<Product> productPage;
+
+            productPage = productRepository.findAll(pagination);
+
+
+            return productPage;
+        } catch (Exception e) {
+            throw new ServerError(e.getMessage());
+        }
     }
 }
