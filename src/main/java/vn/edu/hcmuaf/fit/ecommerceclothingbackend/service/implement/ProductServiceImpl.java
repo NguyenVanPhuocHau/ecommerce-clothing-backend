@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import vn.edu.hcmuaf.fit.ecommerceclothingbackend.entitys.Product;
 import vn.edu.hcmuaf.fit.ecommerceclothingbackend.exception.ServerError;
@@ -68,19 +69,42 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public Page<Product> getProductPage(int page, int limit, String[] arrSize, String[] arrColor, String[] priceRange) {
+    public Page<Product> getProductPage(int page, int limit, int[] arrSize, int[] arrColor, double[] priceRange, String sortBy,String sortDir) {
         try {
+            Pageable pagination;
+            if (!sortBy.equals("")){
+                Sort.Direction direction = Sort.Direction.fromString(sortDir);
+                 pagination = PageRequest.of(page, limit, direction,sortBy);
+            }
+            else {
+                 pagination = PageRequest.of(page, limit);
+            }
+//            Page<Product> productPage;
+            if(arrSize.length == 0 && arrColor.length == 0) return  productRepository.findByPriceBetween(priceRange[0],priceRange[1],pagination);
+            if(arrColor.length == 0) return  productRepository.findByProductSizes_IdInAndPriceBetween(arrSize,priceRange[0],priceRange[1],pagination);
+            if(arrSize.length == 0) return  productRepository.findByProductColors_IdInAndPriceBetween(arrColor,priceRange[0],priceRange[1],pagination);
+//            productPage = productRepository.findAll(pagination);
 
 
-            Pageable pagination = PageRequest.of(page, limit);
-            Page<Product> productPage;
-
-            productPage = productRepository.findAll(pagination);
-
-
-            return productPage;
+            return productRepository.findByProductSizes_IdInAndProductColors_IdInAndPriceBetween(arrSize,arrColor,priceRange[0],priceRange[1],pagination);
         } catch (Exception e) {
             throw new ServerError(e.getMessage());
         }
+//        return null;
     }
+
+//    @Override
+//    public List<Product> getProductInArrSizeAndInArrColorAndBetweenPrice(int[] arr,int[] arr1, double min, double max) {
+//        return productRepository.findByProductSizes_IdInAndProductColors_IdInAndPriceBetween(arr,arr1,min,max);
+//    }
+//
+//    @Override
+//    public List<Product> getProductInArrSizeAndBetweenPrice(int[] arr, double min, double max) {
+//        return productRepository.findByProductSizes_IdInAndPriceBetween(arr,min,max);
+//    }
+//
+//    @Override
+//    public List<Product> getProductInArrColorAndBetweenPrice(int[] arr, double min, double max) {
+//        return productRepository.findProductColors_IdInAndPriceBetween(arr, min, max);
+//    }
 }

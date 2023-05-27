@@ -38,13 +38,26 @@ public class ProductController {
         return ResponseEntity.ok().body(sizeService.getAllProductSize());
     }
 
+//    @GetMapping("/arrsizes")
+//    ResponseEntity<?> getAllProductInArr( @RequestParam(value = "arrSize", required = false) int[] arrSize,
+//                                          @RequestParam(value = "arrColor", required = false) int[] arrColor,
+//                                          @RequestParam(value = "priceRan", required = false) int[] priceRan) {
+//        return ResponseEntity.ok().body(productService.getProductInArrSizeAndInArrColorAndBetweenPrice(arrSize,arrColor,priceRan[0],priceRan[1]));
+//    }
+
     @GetMapping("/page")
     Page<Product> getProductPage(@RequestParam(value = "page", defaultValue = "0") int page,
                                  @RequestParam(value = "limit", defaultValue = "4") int limit,
-                                 @RequestParam(value = "arrSize", required = false) String[] arrSize,
-                                 @RequestParam(value = "arrColor", required = false) String[] arrColor,
-                                 @RequestParam(value = "priceRange", required = false) String[] priceRange) {
-        return productService.getProductPage(page,limit,arrSize,arrColor,priceRange);
+                                 @RequestParam(value = "arrSize", required = false) int[] arrSize,
+                                 @RequestParam(value = "arrColor", required = false) int[] arrColor,
+                                 @RequestParam(value = "priceRange", required = false) double[] priceRange,
+                                 @RequestParam(value = "sortBy", required = false) String sortBy,
+                                 @RequestParam(value = "sortDir",defaultValue = "asc",required = false) String sortDir) {
+//        if(arrSize.length == 0 && arrColor.length == 0) return  productService.getProductInArrSizeAndInArrColorAndBetweenPrice(arrSize,arrColor,priceRange)
+        System.out.println(sortBy);
+        System.out.println(sortDir);
+        System.out.println(priceRange[0] + " " + priceRange[1]);
+        return productService.getProductPage(page,limit,arrSize,arrColor,priceRange,sortBy,sortDir);
     }
 //    @GetMapping("/{id}")
 //    ResponseEntity<ResponseObject> findById(@PathVariable int id) {

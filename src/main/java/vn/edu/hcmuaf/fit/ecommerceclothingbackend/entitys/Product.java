@@ -7,10 +7,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 @Setter
 @Getter
@@ -50,6 +47,7 @@ public class Product {
 
     private double discount;
     private int quantity;
+
 
     public Product(String productName, String description, String guide, double price, int quantity) {
         this.productName = productName;
