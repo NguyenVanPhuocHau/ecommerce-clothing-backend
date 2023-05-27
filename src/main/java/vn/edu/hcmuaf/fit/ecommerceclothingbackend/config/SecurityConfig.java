@@ -64,6 +64,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/api/v1/cart/**").permitAll()
                 .antMatchers("/api/v1/payment/**").permitAll()
                 .antMatchers("/api/v1/order/**").permitAll()
+                .antMatchers("/api/v1/files/**").permitAll()
                 .anyRequest().authenticated().and()
                 .exceptionHandling().authenticationEntryPoint(jwtAuthenticationEntryPoint).and().sessionManagement()
                 .sessionCreationPolicy(SessionCreationPolicy.STATELESS);
