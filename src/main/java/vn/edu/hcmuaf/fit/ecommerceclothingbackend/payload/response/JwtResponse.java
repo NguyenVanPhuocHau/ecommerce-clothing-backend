@@ -12,13 +12,7 @@ import java.util.List;
 @AllArgsConstructor
 @ToString
 public class JwtResponse {
-//  private String token;
-//  private int id;
-//  private String name;
-//  private String phone;
-//  private String avatar;
-//  private String email;
-//  private List<String> roles;
+
 
   private String token;
   private String type = "Bearer";

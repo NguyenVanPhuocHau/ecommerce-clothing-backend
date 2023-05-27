@@ -15,18 +15,7 @@ import javax.persistence.*;
 @Entity
 @JsonIgnoreProperties("cart")
 public class CartItems {
-//    @Id
-//    @GeneratedValue(strategy = GenerationType.IDENTITY)
-//    private int id;
-//    @ManyToOne
-//    @JoinColumn(name = "cart_id")
-//    private Cart cart;
-//    private double price;
-//    private int quantity;
-//    @ManyToOne
-//    @Id
-//    @JoinColumn(name = "productV_id")
-//    private ProductVariants productVariants;
+
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

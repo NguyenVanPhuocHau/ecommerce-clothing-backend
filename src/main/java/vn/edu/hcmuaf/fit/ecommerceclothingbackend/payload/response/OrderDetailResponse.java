@@ -16,5 +16,5 @@ public class OrderDetailResponse {
     int id;
     int quantity;
     String size;
-//    ProductDto product;
+
 }
