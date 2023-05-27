@@ -59,13 +59,7 @@ public class AuthController {
                 .map(item -> item.getAuthority())
                 .collect(Collectors.toList());
         JwtResponse jwtResponse = new JwtResponse();
-//        jwtResponse.setToken(jwt);
-//        jwtResponse.setName(userDetails.getName());
-//        jwtResponse.setPhone(userDetails.getPhone());
-//        jwtResponse.setAvatar(userDetails.getAvatar());
-//        jwtResponse.setEmail(userDetails.getUsername());
-//        jwtResponse.setRoles(roles);
-//        jwtResponse.setId(userDetails.getId());
+
 
         return ResponseEntity.ok(new JwtResponse(jwt, userDetails.getUsername(), userDetails.getId(), 200, userDetails.getUsername(), userDetails.getEmail(), roles));
     }
@@ -103,25 +97,7 @@ public class AuthController {
         Set<Roles> roles = new HashSet<>();
 
 
-//        if (strRoles == null) {
-//            Role userRole = roleRepository.findByName(ERole.ROLE_USER)
-//                    .orElseThrow(() -> new RuntimeException("Error: Role is not found."));
-//            roles.add(userRole);
-//        } else {
-//            strRoles.forEach(role -> {
-//                switch (role) {
-//                    case "admin":
-//                        Role adminRole = roleRepository.findByName(ERole.ROLE_ADMIN)
-//                                .orElseThrow(() -> new RuntimeException("Error: Role is not found."));
-//                        roles.add(adminRole);
-//                        break;
-//                    default:
-//                        Role userRole = roleRepository.findByName(ERole.ROLE_USER)
-//                                .orElseThrow(() -> new RuntimeException("Error: Role is not found."));
-//                        roles.add(userRole);
-//                }
-//            });
-//        }
+
         Roles userRole = roleRepository.findRolesByName(ERole.ROLE_USER)
                 .orElseThrow(() -> new RuntimeException("Error: Role is not found."));
         roles.add(userRole);
@@ -131,9 +107,7 @@ public class AuthController {
         cart.setUser(user);
         user.setCart(cart);
         userRepository.save(user);
-//        return ResponseEntity.ok(new MessageResponse("successfully!"));
 
-//        return ResponseEntity.status(HttpStatus.OK).body(json.toString());
         MessageResponse messageResponse = new MessageResponse(200, "successfully!");
         return ResponseEntity.status(HttpStatus.OK).body(messageResponse);
     }
@@ -143,8 +117,5 @@ public class AuthController {
 
         return "jkaslkdfjas";
     }
-//    @GetMapping("/findEmail")
-//    public String getk() {
-//        return "ksfjdksf";
-//    }
+
 }

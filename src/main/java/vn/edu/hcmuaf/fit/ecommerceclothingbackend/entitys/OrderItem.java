@@ -15,18 +15,7 @@ import javax.persistence.*;
 @Entity
 @JsonIgnoreProperties("order")
 public class OrderItem {
-//    @Id
-//    @GeneratedValue(strategy = GenerationType.IDENTITY)
-//    private int id;
-//    @ManyToOne
-//    @JoinColumn(name = "order_id")
-//    private UserOrder order;
-//    @OneToOne
-//    @MapsId
-//    @JoinColumn(name = "productV_id")
-//    private ProductVariants productVariants;
-//    private double priceCurrent;
-//    private int quantity;
+
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

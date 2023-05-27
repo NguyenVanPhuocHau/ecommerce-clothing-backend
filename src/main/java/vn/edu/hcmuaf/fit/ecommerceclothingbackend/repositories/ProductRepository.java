@@ -29,5 +29,5 @@ public interface ProductRepository extends JpaRepository<Product, Integer> {
 
     Page<Product> findByPriceBetween(double min,double max,Pageable pageable);
 
-//    Page<Product> findProductPage();
+
 }

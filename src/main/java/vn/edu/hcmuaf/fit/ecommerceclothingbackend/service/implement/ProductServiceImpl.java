@@ -83,14 +83,14 @@ public class ProductServiceImpl implements ProductService {
             if(arrSize.length == 0 && arrColor.length == 0) return  productRepository.findByPriceBetween(priceRange[0],priceRange[1],pagination);
             if(arrColor.length == 0) return  productRepository.findByProductSizes_IdInAndPriceBetween(arrSize,priceRange[0],priceRange[1],pagination);
             if(arrSize.length == 0) return  productRepository.findByProductColors_IdInAndPriceBetween(arrColor,priceRange[0],priceRange[1],pagination);
-//            productPage = productRepository.findAll(pagination);
+
 
 
             return productRepository.findByProductSizes_IdInAndProductColors_IdInAndPriceBetween(arrSize,arrColor,priceRange[0],priceRange[1],pagination);
         } catch (Exception e) {
             throw new ServerError(e.getMessage());
         }
-//        return null;
+
     }
 
 //    @Override

@@ -17,8 +17,7 @@ public interface UserRepository extends JpaRepository<User,Integer> {
     Optional<User> findByEmail(String email);
 
 
-//    @Query("select u from User u join fetch u.roles where u.email=:email")
-//    User findUserHasVoucher(@Param("email") String email);
+
 
     @Override
     Optional<User> findById(Integer integer);
