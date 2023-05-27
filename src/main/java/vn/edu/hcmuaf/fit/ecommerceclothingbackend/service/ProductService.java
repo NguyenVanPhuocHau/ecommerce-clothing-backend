@@ -23,5 +23,9 @@ public interface ProductService {
 
     public List<Product> getAllProduct();
 
-    public Page<Product> getProductPage(int page, int limit, String[] sizeIds, String[] colorIds, String[] priceRange);
+    public Page<Product> getProductPage(int page, int limit, int[] sizeIds, int[] colorIds, double[] priceRange,String sortBy,String sortDirection);
+
+//    public List<Product> getProductInArrSizeAndInArrColorAndBetweenPrice(int[] arr,int[] arr1,double min, double max);
+//    public List<Product> getProductInArrSizeAndBetweenPrice(int[] arr,double min, double max);
+//    public List<Product> getProductInArrColorAndBetweenPrice(int[] arr,double min, double max);
 }
